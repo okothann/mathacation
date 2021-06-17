@@ -1,0 +1,38 @@
+---
+title: 'LOAN ANALYSIS AMONG US CITIZENS'
+author: "Ann"
+date: "6/16/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+#INTRODUCTON
+#AN ANALYSIS ON LOANBORROWING IN THE UNITED STATES OF AMERICA.
+#VARIOUS ANALYSIS METHODS HAVE BEEN USED
+
+
+library(datasets)
+View(Loan_payments_data_1_)
+#Loan payments were obtained from kaggle website
+mode(Loan_payments_data_1_$age)
+#The variable 'age' is numeric
+mean(Loan_payments_data_1_$age)
+#The mean of the age in which people take loans is approximately 31 
+max(Loan_payments_data_1_$age)
+min(Loan_payments_data_1_$age)
+
+#The range in which people borrow loans is 18 and 51
+
+attach(Loan_payments_data_1_)
+
+#These are the variables used when analyzing the given data
+names(Loan_payments_data_1_)
+ 
+summary(Principal)
+
+olsreg<-lm(Principal~+age+education+Gender)
+summary(olsreg)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
